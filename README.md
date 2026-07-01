@@ -8,6 +8,16 @@
 - **Playwright headless print**：Chromium 渲染，CSS 100% 还原，适合复杂 JS/动画页面
 - **dompdf.js 注入**：前端方案通过 Playwright 注入浏览器环境运行，输出极小体积矢量 PDF
 
+## 一键安装（Agent Skill）
+
+```bash
+# Claude Code
+curl -sL https://raw.githubusercontent.com/eddywang/html-to-pdf-skill/main/SKILL.md -o .claude/skills/html-to-pdf/SKILL.md && mkdir -p .claude/skills/html-to-pdf/scripts && curl -sL https://raw.githubusercontent.com/eddywang/html-to-pdf-skill/main/scripts/html_to_pdf_weasyprint.py -o .claude/skills/html-to-pdf/scripts/html_to_pdf_weasyprint.py
+
+# Hermes Agent
+git clone https://github.com/eddywang/html-to-pdf-skill.git ~/.hermes/skills/creative/html-to-pdf
+```
+
 ## 快速开始
 
 ### 环境准备
