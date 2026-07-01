@@ -14,6 +14,7 @@ Requirements:
 import sys
 import os
 
+
 def convert(input_html: str, output_pdf: str | None = None) -> str:
     from weasyprint import HTML
 

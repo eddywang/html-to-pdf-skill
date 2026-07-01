@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>融合版技能测试</title>
+<style>
+@page { size: A4; margin: 18mm 20mm 22mm 20mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Noto Sans CJK SC", "PingFang SC", sans-serif; color: #1a1a2e; line-height: 1.8; }
+h2, h3 { break-after: avoid; page-break-after: avoid; }
+.card { break-inside: avoid; page-break-inside: avoid; background: #f8f9fb; border-left: 4px solid #1e3a5f; padding: 1.2rem 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0; }
+.row { display: table; width: 100%; border-spacing: 16px 0; table-layout: fixed; }
+.col { display: table-cell; width: 50%; vertical-align: top; }
+.centered { text-align: center; margin: 0 auto; }
+.cover { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%); color: white; padding: 80px 40px; text-align: center; }
+.cover h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.cover p { font-size: 1.1rem; opacity: 0.9; }
+article { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+.section-title { font-size: 1.3rem; font-weight: 700; color: #1e3a5f; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin: 2rem 0 1.2rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th, td { padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+th { background: #f8f9fb; font-weight: 600; color: #6b7280; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>HTML → PDF 融合版技能测试</h1>
+  <p>验证中文渲染 · 分页控制 · Table 布局</p>
+  <p style="margin-top:1rem; opacity:0.7;">2026年7月1日</p>
+</div>
+
+<article>
+
+<h2 class="section-title">一、中文渲染测试</h2>
+<p>这段文字用来验证中文字体是否正常渲染。包括常用汉字、标点符号（「」、——、……）以及数字混排（2026年Q3营收预计增长15%）。</p>
+
+<h2 class="section-title">二、双列布局（Table 替代 Flex）</h2>
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <h3>左侧列</h3>
+      <p>这是用 display:table-cell 实现的双列布局，替代了 WeasyPrint 不完整支持的 flex 布局。列宽各 50%。</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h3>右侧列</h3>
+      <p>两列应该并排显示、等高对齐。如果这里显示正常，说明 table 布局替代方案有效。</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">三、表格测试</h2>
+<table>
+  <tr><th>工具</th><th>优势</th><th>适用场景</th></tr>
+  <tr><td>WeasyPrint</td><td>轻量、矢量输出、CJK 支持</td><td>报告/简历/方案</td></tr>
+  <tr><td>Playwright</td><td>完美 CSS 还原</td><td>复杂 JS 渲染</td></tr>
+  <tr><td>dompdf.js</td><td>纯前端零依赖</td><td>SaaS 导出按钮</td></tr>
+</table>
+
+<h2 class="section-title">四、分页控制测试</h2>
+<p>以下是多个卡片，每个都有 break-inside:avoid，用来测试分页是否正常（不会出现空白页）：</p>
+
+<div class="card"><h3>卡片 1</h3><p>产品定位与市场分析：面向中小企业的智能助手解决方案，核心竞争力在于个性化和本地化能力。</p></div>
+<div class="card"><h3>卡片 2</h3><p>技术架构：基于多租户容器化部署，每个用户独立运行环境，数据完全隔离。支持 WeChat、Telegram、Discord 等多平台接入。</p></div>
+<div class="card"><h3>卡片 3</h3><p>商业模式：按租户收费的 SaaS 模式，包含基础版（免费）和专业版（月付）两个层级。</p></div>
+<div class="card"><h3>卡片 4</h3><p>运营指标：月活用户、消息量、留存率、付费转化率是核心 KPI。目标是 6 个月内达到 100 个付费租户。</p></div>
+<div class="card"><h3>卡片 5</h3><p>团队构成：产品负责人（Eddy）+ 技术合伙人（鸭哥），计划融资后扩充 2-3 名工程师。</p></div>
+
+<h2 class="section-title">五、居中测试</h2>
+<p class="centered" style="font-size:1.2rem; color:#1e3a5f; margin:2rem auto;">这行文字应该居中显示（text-align:center + margin:0 auto）</p>
+
+</article>
+</body>
+</html>
